@@ -79,7 +79,7 @@ else if (65 < userAge) {
 
 // a questo punto elaboro la tariffa finale riducendola a massimo 2 cifre decimali e la pubblico in un Alert.
 
-console.log(`Tariffa arrotondata a 2 decimali: ${parseFloat(tariffaFinale).toFixed(2)}€`);
-console.log(`Tariffa NON arrotondata: ${tariffaFinale} €`);
+console.log(`Tariffa finale arrotondata a 2 decimali: ${parseFloat(tariffaFinale).toFixed(2)}€`);
+console.log(`Tariffa finale NON arrotondata: ${tariffaFinale} €`);
 
 alert(`Il tuo biglietto costerà in tutto ${parseFloat(tariffaFinale).toFixed(2)}€.`)
