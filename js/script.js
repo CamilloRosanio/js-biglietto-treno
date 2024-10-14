@@ -22,24 +22,34 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 // # RACCOLTA DATI
 
 // chiedo all'utente il numero di km che vuole percorrere
+const kmTratta = parseInt(prompt('Indica il numero di Km della tua tratta'));
+console.log(`Km dichiarati: ` + kmTratta);
+
 // chiedo l'età del passeggero
+const userAge = parseInt(prompt(`Dichiara l'età del passeggero`));
+console.log(`Età passeggero dichiarata: ` + userAge);
+
 // dichiaro i dati conosciuti
+const tariffaTratta = 0.21;
+console.log(`Tariffa base: ${tariffaTratta}€ / Km`);
 
 
 // # VALIDAZIONE DATI
 
-// valido il dato sul numero di km selezionato dall'utente in questo modo:
-
 // SE
-    // il valore NON E' NaN
-    // il valore è MAGGIORE DI ZERO
-    // ALTRIMENTI --> ALERT
+if (
+    // il valore dei Km NON E' NaN AND il valore è MAGGIORE DI ZERO
+    ((kmTratta != isNaN) && (kmTratta > 0)) &&
+    // AND
+    // il valore dell'età NON E' NaN AND MAGGIORE DI ZERO AND numero intero AND COMPRESO TRA 1 e 120
+    ((userAge != isNaN) && (userAge > 0) && (Number.isInteger(userAge)) && (1 <= userAge <= 120))
+ ) 
+ {
+    console.log('Tutto regolare');
+} else {
+    alert('Valori inseriti non validi')
+}
 
-// valido l'età del passeggero in questo modo:
-    // il valore NON E' NaN
-    // il valore è MAGGIORE DI ZERO
-    // il valore è COMPRESO TRA 1 e 120
-    // ALTRIMENTI --> ALERT
 
 
 // # ELABORAZIONE DATI
