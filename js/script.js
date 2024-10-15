@@ -19,6 +19,11 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 | # ESECUZIONE
 **********************************************************/
 
+/*   CORREZIONE TUTOR (MICHELE - 15 Ottobre 2024)
+Ciao Camillo, sono Michele. Ho guardato il tuo esercizio e funziona bene, ma ci sono alcune cose che puoi migliorare. Ad esempio, nella validazione dell'età e dei chilometri c'è un errore: "userAge != isNaN" e "kmTratta != isNaN" non funzionano come ti aspetti, dovresti usare "!isNaN(userAge)" e "!isNaN(kmTratta)" per verificare correttamente. Inoltre, nell'"else if" per l'età tra 18 e 65, la condizione "(18 <= userAge <= 65)" non è corretta in JavaScript, dovresti usare "userAge >= 18 && userAge <= 65". */
+
+
+
 // # RACCOLTA DATI
 
 // chiedo all'utente il numero di km che vuole percorrere
@@ -26,7 +31,7 @@ const kmTratta = parseInt(prompt('Indica il numero di Km della tua tratta'));
 console.log(`Km dichiarati: ` + kmTratta);
 
 // Criterio di validazione Km.
-const isValid_kmTratta = (kmTratta != isNaN) && (kmTratta > 0);
+const isValid_kmTratta = isNaN(kmTratta) && (kmTratta > 0);
 
 // valido l'input dei Km.
 if (isValid_kmTratta) {
@@ -41,7 +46,7 @@ const userAge = parseInt(prompt(`Dichiara l'età del passeggero`));
 console.log(`Età passeggero dichiarata: ` + userAge);
 
 // Criterio di validazione Età .
-const isValid_userAge = (userAge != isNaN) && (userAge > 0) && (Number.isInteger(userAge)) && (1 <= userAge <= 120);
+const isValid_userAge = isNaN(userAge) && (userAge > 0) && (userAge >= 0);
 
 // valido l'input dell'età.
 if (isValid_userAge) {
@@ -66,12 +71,12 @@ if (userAge < 18) {
     tariffaFinale = (tariffaTratta * kmTratta) - ((tariffaTratta * kmTratta) / 100) * 20;
 }
 // ALTRIMENTI SE età del passeggero COMPRESA TRA 19 e 65
-else if ((18 <= userAge <= 65)) {
+else if ((userAge >= 18 && userAge <= 65)) {
     // applico la tariffa piena
     tariffaFinale = (tariffaTratta * kmTratta);
 }
 // ALTRIMENTI SE età del passeggero è MAGGIORE DI 65
-else if (65 < userAge) {
+else if (userAge > 65) {
     //applico lo sconto del 40%
     tariffaFinale = (tariffaTratta * kmTratta) - ((tariffaTratta * kmTratta) / 100) * 40;
 }
