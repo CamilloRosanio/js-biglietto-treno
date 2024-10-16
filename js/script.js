@@ -31,7 +31,7 @@ const kmTratta = parseInt(prompt('Indica il numero di Km della tua tratta'));
 console.log(`Km dichiarati: ` + kmTratta);
 
 // Criterio di validazione Km.
-const isValid_kmTratta = isNaN(kmTratta) && (kmTratta > 0);
+const isValid_kmTratta = !isNaN(kmTratta) && (kmTratta > 0);
 
 // valido l'input dei Km.
 if (isValid_kmTratta) {
@@ -46,7 +46,7 @@ const userAge = parseInt(prompt(`Dichiara l'età del passeggero`));
 console.log(`Età passeggero dichiarata: ` + userAge);
 
 // Criterio di validazione Età .
-const isValid_userAge = isNaN(userAge) && (userAge > 0) && (userAge >= 0);
+const isValid_userAge = !isNaN(userAge) && (userAge > 0) && (userAge >= 0);
 
 // valido l'input dell'età.
 if (isValid_userAge) {
